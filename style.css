@@ -1,0 +1,39 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Whisper&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+h2 {
+    font-family: "Regular 400";
+}
+
+body {
+    margin: 0px;
+    font-family: Arial, sans-serif;
+}
+header, section {
+    padding: 20px;
+    min-height: 40vh;
+}
+p, li {
+    line-height: 1.5em;
+}
+
+#tutorials {
+    background-color: #e2a6e5;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+#homework {
+    background-color: #aceee4;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#inspiration {
+    background-color: #b3efa7;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}

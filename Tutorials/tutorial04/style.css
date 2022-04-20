@@ -1,0 +1,57 @@
+.container {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr;
+   grid-template-rows: 0.2fr 1fr 1fr;
+   grid-template-areas: 
+      "a . b b"
+      "c d e f"
+      "g g g f";
+   grid-row-gap: 20px;
+   grid-column-gap: 10px;
+   min-height: 100vh;
+}
+
+
+
+.menu1 {
+   grid-area: a;
+   background: #de34eb;
+   min-height: 40px;
+}
+
+.menu2 {
+   grid-area: b;
+   background: yellow;
+   min-height: 40px;
+}
+
+@media (max-width: 1024px) {
+   /* tablet layout here */
+}
+
+.card1 {
+   grid-area: c;
+   background: blue;
+   color: black;
+   }  
+.card2 {
+   grid-area: d;
+   background: blue;
+   color: black;
+}
+.card3 {
+   grid-area: e;
+   background: blue;
+   color: black;
+}
+
+.aside{
+   grid-area: f;
+   background: #636a51;
+   color: black;
+}
+.main{
+   grid-area: g;
+   background: #4ca7df;
+   color: black;
+}
