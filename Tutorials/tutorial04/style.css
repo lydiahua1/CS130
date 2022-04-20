@@ -17,31 +17,75 @@
    grid-area: a;
    background: #de34eb;
    min-height: 40px;
+   max-height: 10vh;
+   color: black
+   ;
 }
 
 .menu2 {
    grid-area: b;
    background: yellow;
    min-height: 40px;
+   max-height: 10vh;
+   color: black;
 }
 
 @media (max-width: 1024px) {
-   /* tablet layout here */
+   /*tablet*/
+   .container{
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0.2fr 0.2fr 1fr 1fr 1fr;
+      grid-template-areas: 
+         "a ."
+         "b b"
+         "c c"
+         "d d"
+         "e e"
+         "g g";
+      grid-row-gap: 20px;
+      grid-column-gap: 10px;
+      min-height: 100vh;
+   }
+}
+
+@media (max-width: 600px) {
+   /*phone*/
+   .container{
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      grid-template-areas: 
+         "a ."
+         "b b"
+         "c c"
+         "d d"
+         "e e"
+         "g g";
+      grid-row-gap: 20px;
+      grid-column-gap: 10px;
+      min-height: 100vh;
+   }
+   .aside{
+      display: none;
+   }
 }
 
 .card1 {
    grid-area: c;
-   background: blue;
+   background: #4ca7df;
    color: black;
    }  
 .card2 {
    grid-area: d;
-   background: blue;
+   background: #4ca7df;
    color: black;
 }
 .card3 {
    grid-area: e;
-   background: blue;
+   background: #4ca7df;
    color: black;
 }
 
@@ -54,4 +98,22 @@
    grid-area: g;
    background: #4ca7df;
    color: black;
+}
+
+@media screen and (max-width: 900px) {
+   .container {
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 0.2fr 0.3fr 1fr 1fr 1fr;
+      grid-template-areas: 
+         "a b"
+         "f f"
+         "c d"
+         "e e"
+         "g g";
+      grid-row-gap: 20px;
+      grid-column-gap: 10px;
+      min-height: 100vh;
+   }
 }
