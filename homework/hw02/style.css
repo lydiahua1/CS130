@@ -105,13 +105,17 @@ h1 {
     font-weight: bold;
     height: 20px;
 }
-
+#sidebar a{
+    color: rgb(213, 203, 203);
+}
 aside>a{
     margin-block-start: 1.9em;
     margin-inline-start: 12px;
     margin-inline-end: 0px;
     height: 10px;
+    color: #222;
 }
+
 
 
 
@@ -137,8 +141,31 @@ aside>a{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
+    /* grid-template-rows: 150px 150px; */
+    width: 100%;
 }
- 
+.artist-card img{
+    width: 300px;
+    border-radius: 50%;
+}
+.card-footer{
+    /* display: flex; */
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+}
+.card-footer h2,p{
+    width:300px;
+}
+.play-button{
+    margin-left:150px;
+}
+.artist-card{
+    width: 40px;
+    background-color: #000;
+}
 
 
 
