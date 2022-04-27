@@ -116,6 +116,19 @@ aside>a{
     color: #222;
 }
 
+.fas .fa-headphones-alt {
+    text-decoration-line: underline;
+    text-underline-position: left;
+    text-decoration-color: green;
+    text-decoration-thickness: 5px;
+}
+#profile {
+    text-decoration-line: underline;
+    /* text-underline-position: left; */
+    text-decoration-color: green;
+    text-decoration-thickness: 5px;
+}
+
 
 
 
@@ -210,5 +223,6 @@ aside>a{
     #sidebar{
        display: none;
     }
+   
  }
   
