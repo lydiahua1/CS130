@@ -139,14 +139,19 @@ aside>a{
 #featured-content{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 20px;
+    grid-column-gap: 10px;
     grid-row-gap: 20px;
     /* grid-template-rows: 150px 150px; */
     width: 100%;
 }
 .artist-card img{
-    width: 300px;
+    width: 200px;
     border-radius: 50%;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top:1em;
 }
 .card-footer{
     /* display: flex; */
@@ -157,14 +162,19 @@ aside>a{
     
 }
 .card-footer h2,p{
-    width:300px;
+    /* width:300px; */
+    min-height: 2em;
+    margin: 10px;
+
 }
-.play-button{
-    margin-left:150px;
-}
+/* .play-button{
+    margin-left:10px;
+} */
 .artist-card{
-    width: 40px;
-    background-color: #000;
+    /* width: 40px; */
+    background-color: rgb(35, 34, 34);
+    min-width: none;
+    min-height: auto;
 }
 
 
@@ -176,3 +186,29 @@ aside>a{
 /* Your Code Here */
 
 
+@media (max-width: 1024px) {
+    /*tablet*/
+    #featured-content{
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr;
+       /* grid-template-rows: 0.2fr 0.2fr 1fr 1fr 1fr; */
+       grid-row-gap: 20px;
+       grid-column-gap: 10px;
+       min-height: 100vh;
+    }
+ }
+ @media (max-width: 600px) {
+    /*phone*/
+    #featured-content{
+       display: grid;
+       grid-template-columns: 1fr 1fr;
+       grid-template-rows: auto;
+       grid-row-gap: 20px;
+       grid-column-gap: 10px;
+       min-height: 100vh;
+    }
+    #sidebar{
+       display: none;
+    }
+ }
+  
