@@ -34,17 +34,19 @@ aside {
     grid-area: left;
 }
 header {
-    padding: 1em;
+    padding: 2.5em;
     display: flex;
     flex-direction: row;
     justify-content: end;
-    column-gap: 25px;
+    column-gap: 50px; 
     background: #111;
     position: fixed;
     width: calc(100vw - 250px);
-    min-height: 100px;
+    /* z-index: 99999; */
+    min-height: 100px; 
     padding-right:40px;
     /* left: 250px; */
+    align-items: baseline;
 }
 
 main {
@@ -116,19 +118,25 @@ aside>a{
     color: #222;
 }
 
-.fas .fa-headphones-alt {
+/* .fas .fa-headphones-alt {
     text-decoration-line: underline;
     text-underline-position: left;
-    text-decoration-color: green;
+    text-decoration-color: green !important;
     text-decoration-thickness: 5px;
-}
-#profile {
+} */
+
+nav>a.selected {
     text-decoration-line: underline;
     /* text-underline-position: left; */
     text-decoration-color: green;
     text-decoration-thickness: 5px;
 }
-
+aside>a.selected {
+    text-decoration-line: underline;
+    text-underline-position: left;
+    text-decoration-color: green;
+    text-decoration-thickness: 5px;
+}
 
 
 
@@ -138,7 +146,20 @@ aside>a{
 
 /* Your Code Here */
 
-/* all in parent class/
+/* all in parent class/ */
+
+a#upgrade{
+    border-style: solid;
+    outline-color: white !important;
+    border-radius: 20px;
+    letter-spacing: 2px;
+
+}
+a#profile{
+    background-color: gray;
+    border-radius: 20%;
+    letter-spacing: 2px
+}
 
 
 
@@ -212,9 +233,9 @@ aside>a{
  }
  @media (max-width: 600px) {
     /*phone*/
-    #featured-content{
+    body{
        display: grid;
-       grid-template-columns: 1fr 1fr;
+       grid-template-columns: 1fr;
        grid-template-rows: auto;
        grid-row-gap: 20px;
        grid-column-gap: 10px;
@@ -222,6 +243,9 @@ aside>a{
     }
     #sidebar{
        display: none;
+    }
+    #featured-content{
+        width: 50%;
     }
    
  }
