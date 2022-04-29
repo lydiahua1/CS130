@@ -34,7 +34,7 @@ aside {
     grid-area: left;
 }
 header {
-    padding: 2.5em;
+    padding: 1em;
     display: flex;
     flex-direction: row;
     justify-content: end;
@@ -148,17 +148,19 @@ aside>a.selected {
 
 /* all in parent class/ */
 
-a#upgrade{
+header #upgrade{
     border-style: solid;
     outline-color: white !important;
     border-radius: 20px;
     letter-spacing: 2px;
+    padding: 0.2cm;
 
 }
-a#profile{
+header #profile{
     background-color: gray;
     border-radius: 20%;
-    letter-spacing: 2px
+    letter-spacing: 2px;
+    padding: 0.2cm;
 }
 
 
@@ -176,8 +178,8 @@ a#profile{
     grid-column-gap: 10px;
     grid-row-gap: 20px;
     /* grid-template-rows: 150px 150px; */
-    width: 100%;
 }
+
 .artist-card img{
     width: 200px;
     border-radius: 50%;
@@ -209,6 +211,7 @@ a#profile{
     background-color: rgb(35, 34, 34);
     min-width: none;
     min-height: auto;
+    width: 100%;
 }
 
 
