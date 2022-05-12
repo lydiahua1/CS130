@@ -23,37 +23,38 @@ const getTracks = (term) => {
     //     of the DOM...`);
     const elem = document.querySelector("#tracks");
     elem.innerHTML = "";
-
-    fetch(baseURL + "?type=tracks&q=" + term)
+    fetch(baseURL + "?type=track&q=" + term)
         .then((response) => response.json())
         .then((data) =>{
+            console.log(data)
             if (data.length > 0) {
                 const fivetracks = data.slice(0,5);
-                fivetracks.array.forEach(element => {
-                    elem.innerHTML += gettracksHTML(element)
-                });
+                fivetracks.map(element => {
+                    elem.innerHTML += gettracksHTML(element) 
+                })
                 
             }
         })
 };
 
 gettracksHTML = (data) => {
+    console.log(data)
     if (!data.image_url) {
         data.image_url = 
             "https://www.pngkit.com/png/full/943-9439413_blue-butterfly-free-png-image-dark-blue-to.png";
     }
-   return `<button class="track-item preview" data-preview-track="https://p.scdn.co/mp3-preview/879c7106422b0b53852209da6a63210be7e09b01?cid=9697a3a271d24deea38f8b7fbfa0e13c" onclick="handleTrackClick(event);">
-   <img src="https://i.scdn.co/image/1aacaefb0ef07755e5a155d96ee7f1073063e428">
+
+   return `<button class="track-item preview" data-preview-track="${data.preview_url}" onclick="handleTrackClick(event);">
+   <img src="${data.image_url}>
    <i class="fas play-track fa-play" aria-hidden="true"></i>
    <div class="label">
-       <h2>Black Swan</h2>
+       <h2>${data.album.name}</h2>
        <p>
-           BTS
+           ${data.artist.name}
        </p>
    </div>
 </button>`;
 };
-}
 
 const getAlbums = (term) => {
     console.log(`
@@ -76,7 +77,7 @@ const getArtist = (term) => {
             if (data.length > 0) {
                 const firstArtist = data[0];
                 elem.innerHTML += getArtistHTML(firstArtist);
-                console.log(firstArtist);
+                console.log("artist", firstArtist);
             } else {
                 elem.innerHTML += `<p> no tracks found that match your search criteria</p>`;
             }
