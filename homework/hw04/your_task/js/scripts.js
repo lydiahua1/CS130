@@ -31,21 +31,22 @@ const getTracks = (term) => {
                 const fivetracks = data.slice(0,5);
                 fivetracks.map(element => {
                     elem.innerHTML += gettracksHTML(element) 
-                })
+                })} else {
+                    elem.innerHTML += `<p> no tracks found that match your search criteria</p>`;
+                }
                 
             }
-        })
+        )
 };
 
 gettracksHTML = (data) => {
-    console.log(data)
-    if (!data.image_url) {
+    if (!data.album.image_url) {
         data.image_url = 
             "https://www.pngkit.com/png/full/943-9439413_blue-butterfly-free-png-image-dark-blue-to.png";
     }
 
    return `<button class="track-item preview" data-preview-track="${data.preview_url}" onclick="handleTrackClick(event);">
-   <img src="${data.image_url}>
+   <img src="${data.album.image_url}">
    <i class="fas play-track fa-play" aria-hidden="true"></i>
    <div class="label">
        <h2>${data.album.name}</h2>
