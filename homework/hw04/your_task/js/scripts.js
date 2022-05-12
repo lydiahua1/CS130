@@ -80,7 +80,7 @@ const getArtist = (term) => {
                 elem.innerHTML += getArtistHTML(firstArtist);
                 console.log("artist", firstArtist);
             } else {
-                elem.innerHTML += `<p> no tracks found that match your search criteria</p>`;
+                elem.innerHTML += `<p> no artists found that match your search criteria</p>`;
             }
         });
 };
