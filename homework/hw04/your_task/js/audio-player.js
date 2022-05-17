@@ -41,7 +41,7 @@ const AudioPlayer = (selector, audioFile) => {
         const progressController = containerElement.querySelector('#player-time');
         const timeElapsed = containerElement.querySelector('#time-elapsed');
         const timeTotal = containerElement.querySelector('#time-total');
-        //console.log(getSliderPosition(), getCurrentTime(), getDuration());
+        console.log(getSliderPosition(), getCurrentTime(), getDuration());
         if (getDuration() === "0NaN:0NaN") {
             console.log('returning...');
             return;

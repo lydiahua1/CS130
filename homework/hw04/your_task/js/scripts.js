@@ -3,6 +3,7 @@ const baseURL = 'https://www.apitutor.org/spotify/simple/v1/search';
 // Note: AudioPlayer is defined in audio-player.js
 const audioFile = 'https://p.scdn.co/mp3-preview/bfead324ff26bdd67bb793114f7ad3a7b328a48e?cid=9697a3a271d24deea38f8b7fbfa0e13c';
 const audioPlayer = AudioPlayer('.player', audioFile);
+let play = false; 
 
 const search = (ev) => {
     const term = document.querySelector('#search').value;
@@ -108,6 +109,15 @@ const getArtistHTML = (data) => {
 const handleTrackClick = (ev) => {
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
     console.log(previewUrl);
+    audioPlayer.setAudioFile(previewUrl);
+    if(play == false) {
+        audioPlayer.play();
+        play = true;
+    }
+    else {
+        audioPlayer.pause(); 
+        play = false;
+    }
 }
 
 document.querySelector('#search').onkeyup = (ev) => {
