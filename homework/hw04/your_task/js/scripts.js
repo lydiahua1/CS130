@@ -99,7 +99,7 @@ const getAlbumsHTML = (data) => {
 }
     return `<section class="album-card" id="${data.id}">
             <div>
-                <img src="${data.image_url}">
+                <img src="${data.image_url}" alt="${data.image_url}">
                 <h2>${data.name}</h2>
                 <div class="footer">
                     <a href="${data.spotify_url}" target="_blank">
@@ -142,7 +142,7 @@ const getArtistHTML = (data) => {
     }
    return `<section class="artist-card" id="${data.id}">
             <div>
-                <img alt="Image of ${data.name}" src="${data.image_url}">
+                <img alt="${data.name}" src="${data.image_url}">
                 <h2>${data.name}</h2>
                 <div class="footer">
                     <a href="${data.spotify_url}" target="_blank">
