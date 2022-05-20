@@ -41,6 +41,7 @@ const getTracks = (term) => {
 };
 
 gettracksHTML = (data) => {
+    console.log('Track data', data)
     if (!data.album.image_url) {
         data.image_url = 
             "https://www.pngkit.com/png/full/943-9439413_blue-butterfly-free-png-image-dark-blue-to.png";
@@ -59,11 +60,46 @@ gettracksHTML = (data) => {
 };
 
 const getAlbums = (term) => {
-    console.log(`
-        get albums from spotify based on the search term
-        "${term}" and load them into the #albums section 
-        of the DOM...`);
+    // console.log(`
+    //     get albums from spotify based on the search term
+    //     "${term}" and load them into the #albums section 
+    //     of the DOM...`);
+    const elem = document.querySelector("#albums");
+    elem.innerHTML = "";
+
+    fetch(baseURL + "?type=album&q=" + term)
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.length > 0) {
+                data.map(element => {
+                    elem.innerHTML += getAlbumsHTML(element) 
+                })} else {
+                    elem.innerHTML += `<p> no albums found that match your search criteria</p>`;
+                }
+        });
+    };
+
+const getAlbumsHTML = (data) => {
+    console.log("albums",data)
+    if (!data.image_url) {
+        data.image_url = 
+        "https://www.pngkit.com/png/full/943-9439413_blue-butterfly-free-png-image-dark-blue-to.png";
+}
+    return `<section class="album-card" id="${data.id}">
+            <div>
+                <img src="${data.image_url}">
+                <h2>${data.name}</h2>
+                <div class="footer">
+                    <a href="${data.spofity_url}" target="_blank">
+                        view on spotify
+                    </a>
+                </div>
+            </div>
+        </section>`;
+        
 };
+        
+
 
 const getArtist = (term) => {
     // console.log(`
