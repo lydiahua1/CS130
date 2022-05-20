@@ -46,9 +46,21 @@ gettracksHTML = (data) => {
         data.image_url = 
             "https://www.pngkit.com/png/full/943-9439413_blue-butterfly-free-png-image-dark-blue-to.png";
     }
+    if (!data.preview_url){
+        return `<button class="track-item preview">
+            <img src="${data.album.image_url}" alt="${data.album.name}">
+            <i class="fas play-track fa-play" aria-hidden="true"></i>
+            <div class="label">
+                <h2>${data.album.name}</h2>
+                <p>
+                    ${data.artist.name} (no preview available)
+                </p>
+            </div>
+            </button>`;
+                }
 
    return `<button class="track-item preview" data-preview-track="${data.preview_url}" onclick="handleTrackClick(event);">
-   <img src="${data.album.image_url}">
+   <img src="${data.album.image_url}" alt="${data.album.name}">
    <i class="fas play-track fa-play" aria-hidden="true"></i>
    <div class="label">
        <h2>${data.album.name}</h2>
@@ -90,7 +102,7 @@ const getAlbumsHTML = (data) => {
                 <img src="${data.image_url}">
                 <h2>${data.name}</h2>
                 <div class="footer">
-                    <a href="${data.spofity_url}" target="_blank">
+                    <a href="${data.spotify_url}" target="_blank">
                         view on spotify
                     </a>
                 </div>
@@ -133,7 +145,7 @@ const getArtistHTML = (data) => {
                 <img alt="Image of ${data.name}" src="${data.image_url}">
                 <h2>${data.name}</h2>
                 <div class="footer">
-                    <a href="${data.spofity_url}" target="_blank">
+                    <a href="${data.spotify_url}" target="_blank">
                         view on spotify
                     </a>
                 </div>
@@ -143,6 +155,8 @@ const getArtistHTML = (data) => {
 
 
 const handleTrackClick = (ev) => {
+    const footer = document.querySelector('footer'); 
+    footer.style.visibility = "visible";
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
     console.log(previewUrl);
     audioPlayer.setAudioFile(previewUrl);
@@ -155,12 +169,10 @@ const handleTrackClick = (ev) => {
         play = false;
     }
 }
-
 document.querySelector('#search').onkeyup = (ev) => {
     // Number 13 is the "Enter" key on the keyboard
-    console.log(ev.keyCode);
     if (ev.keyCode === 13) {
-        ev.preventDefault();
-        search();
+        search(); 
+        ev.preventDefault(); 
     }
 };

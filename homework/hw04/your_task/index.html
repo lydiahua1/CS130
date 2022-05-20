@@ -1,4 +1,4 @@
-<html>
+<html lang="en">
     <head>
         <title>Spotify Player</title>
         <link rel="stylesheet" href="style.css">
@@ -25,7 +25,8 @@
                 <input type="search" 
                     placeholder="Search for Artists or Songs" 
                     id="search" 
-                    value="" />
+                    value="" 
+                    aria-labelledby = "search"/>
             </header>
             <article id="featured-content">
                 <section id="artist-section">
@@ -43,7 +44,7 @@
             </article>
         </main>
         
-        <footer>
+        <footer style="visibility: hidden">
             <div id="current-track" class="track-item">
                 <!-- to be populated from data -->
             </div>
