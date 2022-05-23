@@ -165,7 +165,7 @@ const handleTrackClick = (ev) => {
 
     audioPlayer.setAudioFile(previewUrl);
     const track = document.getElementById('current-track'); 
-    track.innerHTML = `<img src="${imageUrl}">
+    track.innerHTML = `<img src="${imageUrl}" alt= "${imageUrl}"> 
     <div class='label'>
     <h2> ${albumName} </h2>
     <p> ${artistName} </p>
