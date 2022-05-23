@@ -59,7 +59,8 @@ gettracksHTML = (data) => {
             </button>`;
                 }
 
-   return `<button class="track-item preview" data-preview-track="${data.preview_url}" onclick="handleTrackClick(event);">
+   return `<button class="track-item preview" data-preview-track="${data.preview_url}" onclick="handleTrackClick(event);"
+   data-image-url="${data.album.image_url}" data-artist-name="${data.artist.name}" data-album-name="${data.album.name}">
    <img src="${data.album.image_url}" alt="${data.album.name}">
    <i class="fas play-track fa-play" aria-hidden="true"></i>
    <div class="label">
@@ -158,8 +159,17 @@ const handleTrackClick = (ev) => {
     const footer = document.querySelector('footer'); 
     footer.style.visibility = "visible";
     const previewUrl = ev.currentTarget.getAttribute('data-preview-track');
-    console.log(previewUrl);
+    const imageUrl = ev.currentTarget.getAttribute('data-image-url');
+    const artistName = ev.currentTarget.getAttribute('data-artist-name');
+    const albumName = ev.currentTarget.getAttribute('data-album-name');
+
     audioPlayer.setAudioFile(previewUrl);
+    const track = document.getElementById('current-track'); 
+    track.innerHTML = `<img src="${imageUrl}">
+    <div class='label'>
+    <h2> ${albumName} </h2>
+    <p> ${artistName} </p>
+    </div>`
     if(play == false) {
         audioPlayer.play();
         play = true;
